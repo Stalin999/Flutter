@@ -1,0 +1,34 @@
+void main() {
+  final rawJson = {
+    'nombre': 'Tony Stark',
+    'superpoder': 'Volar'
+  };
+  
+  final ironman = Heroe.fromJson(rawJson);
+
+  print(ironman);
+  //final spiderman = new Heroe(nombre:'Peter Parker', superpoder:'Telaraña');
+  
+  //print (spiderman);
+  
+}
+
+class Heroe {
+  
+  String nombre;
+  String superpoder;
+  
+  Heroe({
+    required this.nombre,
+    required this.superpoder
+  });
+  
+  Heroe.fromJson(Map<String,String>json):
+    this.nombre = json['nombre']!,
+    this.superpoder = json['superpoder'] ?? 'No tiene poder';
+  
+  
+  String toString() {
+    return 'Heroe: Nombre: ${this.nombre}, Superpoder: ${this.superpoder}';
+  }
+}
